@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Julian Albou - Developer, writer, and builder in public">
+    <title>About - Julian Albou</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="nav-logo">Julian Albou</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container fade-in">
+        <section class="about-header mt-2 mb-2">
+            <div class="profile-container">
+                <img src="assets/profile-placeholder.jpg" alt="Julian Albou" class="profile-image">
+                <h1>About Me</h1>
+            </div>
+            <p class="lead">
+                Hi! I'm Julian, a developer passionate about building useful things and sharing what I learn along the way.
+            </p>
+        </section>
+
+        <section class="about-content mt-2">
+            <div class="about-grid">
+                <div class="about-section">
+                    <h2>My Journey</h2>
+                    <p>
+                        I'm on a journey to become a better developer every day. I believe in learning in public
+                        and sharing knowledge with others. This website serves as my digital garden where I document
+                        my progress, share my learnings, and showcase my projects.
+                    </p>
+                </div>
+
+                <div class="about-section">
+                    <h2>What I Do</h2>
+                    <p>
+                        I focus on web development and building practical solutions to real problems.
+                        I'm particularly interested in:
+                    </p>
+                    <ul class="skills-list">
+                        <li>Web Development</li>
+                        <li>Building in Public</li>
+                        <li>Technical Writing</li>
+                        <li>Open Source</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section mt-2">
+            <h2>Get in Touch</h2>
+            <div class="social-links">
+                <a href="https://twitter.com/yourusername" class="social-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="https://github.com/yourusername" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+
+            <div class="contact-form mt-2">
+                <h3>Send me a message</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-2">
+        <div class="container text-center">
+            <p>© 2024 Julian Albou. Building in public.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
