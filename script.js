@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function (){
 document.addEventListener("DOMContentLoaded", function() {
     const blogPosts = [
         { title: "Day 1: The Journey Begins", content: "I just bought my domain and started my dev journey!" },
-        { title: "Day 2: Setting Up My Website", content: "Leanring HTML, CSS, and JavaScript basics." }    
+        { title: "Day 2: Setting Up My Website", content: "Learning HTML, CSS, and JavaScript basics." }    
     ];
 
     const blogContainer = document.getElementById("blog-posts");
