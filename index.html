@@ -7,6 +7,7 @@
     <title>Julian Albou - Developer & Writer</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -29,10 +30,27 @@
                 I'm a developer documenting my journey through code. Here, I share my learnings,
                 projects, and thoughts about technology and development.
             </p>
+            <div class="social-links">
+                <a href="https://twitter.com/yourusername" class="social-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="https://github.com/yourusername" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
         </section>
 
         <section class="featured-posts mt-2">
             <h2>Latest Blog Posts</h2>
+            <div id="search-container" class="search-container">
+                <!-- Search input will be dynamically added here -->
+            </div>
             <div class="blog-grid" id="featured-posts">
                 <!-- Dynamically populated by JavaScript -->
             </div>
@@ -43,7 +61,10 @@
 
         <section class="projects mt-2">
             <h2>Projects</h2>
-            <p>Coming soon! I'm working on some exciting projects that I'll be sharing here.</p>
+            <p class="lead">Here are some of the things I'm working on:</p>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
         </section>
     </main>
 
@@ -55,4 +76,4 @@
 
     <script src="js/script.js"></script>
 </body>
-</html>
+</html> 
