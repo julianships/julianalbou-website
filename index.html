@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Julian Albou's personal website - Developer & Writer">
     <title>Julian Albou</title>
-    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Preload fonts for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <main class="centered-content">
@@ -42,5 +47,25 @@
             </div>
         </div>
     </main>
+
+    <script>
+        // Ensure fonts load properly and add fallback
+        if ('fonts' in document) {
+            Promise.all([
+                document.fonts.load('400 1rem JetBrains Mono'),
+                document.fonts.load('400 1rem Space Mono')
+            ]).then(() => {
+                document.body.classList.add('fonts-loaded');
+            }).catch(() => {
+                // Fallback to system monospace fonts
+                document.body.style.fontFamily = 'SF Mono, Monaco, Consolas, "Courier New", monospace';
+            });
+        }
+        
+        // Add class for mobile detection
+        if (window.innerWidth <= 768) {
+            document.body.classList.add('mobile');
+        }
+    </script>
 </body>
 </html> 

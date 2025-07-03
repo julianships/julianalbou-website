@@ -1,4 +1,4 @@
-/* Modern Minimalist Design with Typewriter Font
+/* Modern Minimalist Design with Typewriter Font - Mobile Optimized
 -------------------------------------------------- */
 
 * {
@@ -12,18 +12,28 @@
     --background-color: #fafafa;
     --accent-color: #666;
     --link-color: #333;
-    --font-mono: 'JetBrains Mono', 'Space Mono', 'Courier New', monospace;
+    --font-mono: 'JetBrains Mono', 'Space Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    --border-subtle: rgba(42, 42, 42, 0.1);
+}
+
+/* Force monospace font display while loading */
+@font-face {
+    font-family: 'fallback-mono';
+    src: local('Courier New'), local('Monaco'), local('Consolas');
+    font-display: swap;
 }
 
 body {
     font-family: var(--font-mono);
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 17px;
+    line-height: 1.7;
     color: var(--text-color);
     background-color: var(--background-color);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 0; /* Disable ligatures for typewriter feel */
+    font-variant-numeric: tabular-nums;
 }
 
 /* Centered Content Layout
@@ -34,29 +44,55 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding: 2rem;
+    position: relative;
+}
+
+/* Subtle background pattern for visual interest */
+.centered-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, var(--border-subtle) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, var(--border-subtle) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    pointer-events: none;
+    opacity: 0.3;
 }
 
 .content-wrapper {
-    max-width: 650px;
+    max-width: 680px;
     width: 100%;
     text-align: left;
+    position: relative;
+    z-index: 1;
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Typography
 -------------------------------------------------- */
 h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 600;
     margin-bottom: 2rem;
     color: var(--text-color);
     letter-spacing: -0.02em;
+    font-family: var(--font-mono);
 }
 
 p {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
+    margin-bottom: 1.6rem;
+    font-size: 1.05rem;
     font-weight: 400;
     color: var(--text-color);
+    font-family: var(--font-mono);
 }
 
 p:last-of-type {
@@ -67,17 +103,19 @@ p:last-of-type {
 -------------------------------------------------- */
 .contact-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     margin-top: 2rem;
+    font-family: var(--font-mono);
 }
 
 .contact-links a {
     color: var(--link-color);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 400;
     transition: all 0.2s ease;
     position: relative;
+    font-family: var(--font-mono);
 }
 
 .contact-links a:hover {
@@ -89,7 +127,7 @@ p:last-of-type {
     position: absolute;
     width: 0;
     height: 1px;
-    bottom: -2px;
+    bottom: -3px;
     left: 0;
     background-color: var(--accent-color);
     transition: width 0.2s ease;
@@ -99,35 +137,91 @@ p:last-of-type {
     width: 100%;
 }
 
-/* Responsive Design
+/* Mobile Optimizations
 -------------------------------------------------- */
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
     .centered-content {
-        padding: 1.5rem;
+        padding: 1rem;
+        align-items: flex-start;
+        padding-top: 4rem;
     }
     
     .content-wrapper {
         max-width: 100%;
+        padding: 1.5rem;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
     }
     
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        margin-bottom: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    p {
+        font-size: 1rem;
+        margin-bottom: 1.4rem;
+        line-height: 1.65;
+    }
+    
+    .contact-links {
+        gap: 2rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .contact-links a {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .centered-content {
+        padding: 0.5rem;
+        padding-top: 3rem;
+    }
+    
+    .content-wrapper {
+        padding: 1.2rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
         margin-bottom: 1.5rem;
     }
     
     p {
         font-size: 0.95rem;
+        line-height: 1.6;
         margin-bottom: 1.3rem;
     }
     
     .contact-links {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.2rem;
+        align-items: flex-start;
     }
 }
 
-@media (max-width: 480px) {
+/* Extra small screens */
+@media (max-width: 360px) {
     .centered-content {
+        padding: 0.5rem;
+        padding-top: 2rem;
+    }
+    
+    .content-wrapper {
         padding: 1rem;
     }
     
@@ -137,7 +231,6 @@ p:last-of-type {
     
     p {
         font-size: 0.9rem;
-        line-height: 1.7;
     }
 }
 
@@ -146,14 +239,65 @@ p:last-of-type {
 @media (prefers-color-scheme: dark) {
     :root {
         --text-color: #e4e4e4;
-        --background-color: #1a1a1a;
+        --background-color: #0d1117;
         --accent-color: #aaa;
         --link-color: #d4d4d4;
+        --border-subtle: rgba(228, 228, 228, 0.1);
+    }
+    
+    .content-wrapper {
+        background-color: var(--background-color);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 }
 
-/* Subtle animation on load
--------------------------------------------------- */
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-color: #000;
+        --background-color: #fff;
+        --accent-color: #000;
+        --link-color: #000;
+    }
+    
+    .content-wrapper {
+        border: 2px solid var(--text-color);
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .content-wrapper {
+        animation: none;
+    }
+    
+    .contact-links a::after {
+        transition: none;
+    }
+}
+
+/* Font loading optimization */
+.fonts-loaded body {
+    font-family: var(--font-mono);
+}
+
+/* Mobile-specific improvements */
+.mobile .content-wrapper {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 1.8rem;
+}
+
+.mobile h1 {
+    font-size: 1.9rem;
+    line-height: 1.1;
+}
+
+.mobile p {
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+/* Subtle animation on load */
 .content-wrapper {
     animation: fadeInUp 0.6s ease-out;
 }
@@ -166,5 +310,12 @@ p:last-of-type {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Ensure monospace font loads properly */
+@supports not (font-display: swap) {
+    body {
+        font-family: 'Courier New', monospace;
     }
 } 
